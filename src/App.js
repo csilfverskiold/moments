@@ -6,31 +6,27 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 
-
 function App() {
-
-
   return (
-        <div className={styles.App}>
-          <NavBar />
-          <Container className={styles.Main}>
-            <Switch>
-              <Route exact path="/" render={() => <h1>Home page</h1>} />
-              <Route exact path="/signin" render={() => <SignInForm />} />
-              <Route exact path="/signup" render={() => <SignUpForm />} />
-              <Route render={() => <p>Page not found!</p>} />
-            </Switch>
-          </Container>
-        </div>
+    <div className={styles.App}>
+      <NavBar />
+      <Container className={styles.Main}>
+        <Switch>
+          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route render={() => <p>Page not found!</p>} />
+        </Switch>
+      </Container>
+    </div>
   );
 }
 
 export default App;
 
-
 /** The styles object here relates to the  name we gave our import at the top,  
 and the .App here relates to the .App class we set  in our css file. */
-    /** The Switch holds all our Routes,  and renders a given component when  
+/** The Switch holds all our Routes,  and renders a given component when  
 a Route path matches the current URL. The render prop on our Route component  
 accepts a function that returns a component to  be rendered when the Route path is matched.
 The path prop is the browser url  the user will be at when they see  
