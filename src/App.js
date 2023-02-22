@@ -11,6 +11,9 @@ import PostsPage from "./pages/posts/PostsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PostEditForm from "./pages/posts/PostEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -54,6 +57,22 @@ function App() {
           <Route exact path="/posts/:id" render={() => <PostPage />} />
           <Route exact path="/posts/:id/edit" render={() => <PostEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
+
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
@@ -62,12 +81,3 @@ function App() {
 }
 
 export default App;
-
-/** The styles object here relates to the  name we gave our import at the top,  
-and the .App here relates to the .App class we set  in our css file. */
-/** The Switch holds all our Routes,  and renders a given component when  
-a Route path matches the current URL. The render prop on our Route component  
-accepts a function that returns a component to  be rendered when the Route path is matched.
-The path prop is the browser url  the user will be at when they see  
-the component in our render prop. The “exact” prop tells the route to  
-only render its component when the  url entered is exactly the same. */
